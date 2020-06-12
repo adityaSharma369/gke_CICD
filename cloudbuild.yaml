@@ -4,16 +4,16 @@ steps:
       entrypoint: 'bash'
       args: [
        '-c', 
-       'docker pull gcr.io/framework-standards/circleci:v1 || exit 0'
+       'docker pull gcr.io/framework-standards/circleci-gke:v1 || exit 0'
       ]
     #step 2
     - name: gcr.io/cloud-builders/docker
       args: [
        'build', 
        '-t', 
-       'gcr.io/framework-standards/circleci:v1',
+       'gcr.io/framework-standards/circleci-gke:v1',
        '-t', 
-       'gcr.io/framework-standards/circleci:v1',
+       'gcr.io/framework-standards/circleci-gke:v1',
        '.'
       ]
     #step 3
@@ -29,7 +29,7 @@ steps:
        'image', 
        'deployment', 
        'circleci', 
-       'circleci=gcr.io/framework-standards/circleci:v1'
+       'circleci=gcr.io/framework-standards/circleci-gke:v1'
       ]
       env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
