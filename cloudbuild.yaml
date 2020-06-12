@@ -53,5 +53,5 @@ steps:
     - circle-ci-cluster
     - web=gcr.io/framework-standards/circleci-gke:latest
     env:
-    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
+    - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
     - 'CLOUDSDK_CONTAINER_CLUSTER=circle-ci-cluster'
