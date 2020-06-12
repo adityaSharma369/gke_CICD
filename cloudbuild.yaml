@@ -51,7 +51,7 @@ steps:
     - image
     - deployment
     - circle-ci-cluster
-    - circle-ci-cluster=gcr.io/framework-standards/circleci-gke:latest
+    - dominic-backend=gcr.io/framework-standards/circleci-gke:latest
     env:
     - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
     - 'CLOUDSDK_CONTAINER_CLUSTER=circle-ci-cluster'
