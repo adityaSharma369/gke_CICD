@@ -4,7 +4,7 @@ steps:
       entrypoint: 'bash'
       args: [
        '-c', 
-       'docker pull gcr.io/framework-standards/circleci-gke:v1 || exit 0'
+       'docker pull gcr.io/framework-standards/circleci-gke:latest || exit 0'
       ]
     #step 2
     - name: gcr.io/cloud-builders/docker
@@ -13,27 +13,27 @@ steps:
        '-t', 
        'gcr.io/framework-standards/circleci-gke:v1',
        '-t', 
-       'gcr.io/framework-standards/circleci-gke:v1',
+       'gcr.io/framework-standards/circleci-gke:latest',
        '.'
       ]
     #step 3
-    - name: 'gcr.io/cloud-builders/kubectl'
-      args: ['apply', '-f', 'k8s/']
-      env:
-      - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=circle-ci-cluster'
-    #step 4
-    - name: 'gcr.io/cloud-builders/kubectl'
-      args: [
-       'set', 
-       'image', 
-       'deployment', 
-       'circleci', 
-       'circleci=gcr.io/framework-standards/circleci-gke:v1'
-      ]
-      env:
-      - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=circle-ci-cluster'
+    # - name: 'gcr.io/cloud-builders/kubectl'
+    #   args: ['apply', '-f', 'k8s/']
+    #   env:
+    #   - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
+    #   - 'CLOUDSDK_CONTAINER_CLUSTER=circle-ci-cluster'
+    # #step 4
+    # - name: 'gcr.io/cloud-builders/kubectl'
+    #   args: [
+    #    'set', 
+    #    'image', 
+    #    'deployment', 
+    #    'circleci', 
+    #    'circleci=gcr.io/framework-standards/circleci-gke:v1'
+    #   ]
+    #   env:
+    #   - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
+    #   - 'CLOUDSDK_CONTAINER_CLUSTER=circle-ci-cluster'
     # # push images to Google Container Registry with tags
     # - images: [
     #    'gcr.io/$PROJECT_ID/circleci:v1',
